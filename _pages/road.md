@@ -1,8 +1,8 @@
 ---
-layout: book
-permalink: /book/
-title: 愫读
-description: 读万卷书.
+layout: road
+permalink: /road/
+title: 愫游
+description: 行万里路.
 years: [1967, 1956, 1950, 1935, 1905]
 nav: true
 nav_order: 1
