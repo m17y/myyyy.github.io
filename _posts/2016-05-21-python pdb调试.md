@@ -3,7 +3,8 @@ layout: post
 title: python pdb调试
 date: 2016-05-21 11:59:00
 description: python pdb调试
-categories: python
+tags: python
+categories: sample-posts
 disqus_comments: true
 ---
 
