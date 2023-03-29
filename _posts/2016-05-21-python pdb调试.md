@@ -5,7 +5,8 @@ date: 2016-05-21 11:59:00
 description: python pdb调试
 tags: python
 categories: sample-posts
-disqus_comments: true
+giscus_comments: true
+related_posts: false
 ---
 
 ## 在python中使用pdb模块可以进行调试
