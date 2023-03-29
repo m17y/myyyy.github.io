@@ -2,7 +2,7 @@
 layout: page
 title: 关于
 nav: true
-nav_order: 4
+nav_order: 999
 dropdown: true
 children: 
     - title: cv
