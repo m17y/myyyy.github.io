@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-29T10:14:08+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">Displaying External Posts on Your al-folio Blog</title><link href="https://myyyy.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog/" rel="alternate" type="text/html" title="Displaying External Posts on Your al-folio Blog" /><published>2022-04-23T23:20:09+00:00</published><updated>2022-04-23T23:20:09+00:00</updated><id>https://myyyy.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog</id><content type="html" xml:base="https://myyyy.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog/"><![CDATA[]]></content><author><name></name></author></entry><entry><title type="html">docker入门</title><link href="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/" rel="alternate" type="text/html" title="docker入门" /><published>2017-03-17T00:00:00+00:00</published><updated>2017-03-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8</id><content type="html" xml:base="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/"><![CDATA[<p>#docker的环境配置</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-29T10:18:07+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">docker入门</title><link href="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/" rel="alternate" type="text/html" title="docker入门" /><published>2017-03-17T00:00:00+00:00</published><updated>2017-03-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8</id><content type="html" xml:base="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/"><![CDATA[<p>#docker的环境配置</p>
 
 <blockquote>
   <p>sudo apt-get update
@@ -1247,4 +1247,19 @@ MathJax will automatically number equations:</p>
   <li>BaseURL :</li>
   <li>Archived :</li>
   <li>Contributors :</li>
-</ul>]]></content><author><name></name></author><category term="sample-posts" /><category term="external-services" /><summary type="html"><![CDATA[a quick run down on accessing github metadata.]]></summary></entry></feed>
+</ul>]]></content><author><name></name></author><category term="sample-posts" /><category term="external-services" /><summary type="html"><![CDATA[a quick run down on accessing github metadata.]]></summary></entry><entry><title type="html">a post with twitter</title><link href="https://myyyy.github.io/blog/1999/twitter/" rel="alternate" type="text/html" title="a post with twitter" /><published>1999-09-28T00:00:00+00:00</published><updated>1999-09-28T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/1999/twitter</id><content type="html" xml:base="https://myyyy.github.io/blog/1999/twitter/"><![CDATA[<p>A sample blog page that demonstrates the inclusion of Tweets/Timelines/etc.</p>
+
+<h1 id="tweet">Tweet</h1>
+<p>An example of displaying a tweet:</p>
+<div class="jekyll-twitter-plugin"><blockquote class="twitter-tweet"><p lang="sv" dir="ltr">jekyll-twitter-plugin (1.0.0): A Liquid tag plugin for Jekyll that renders Tweets from Twitter API <a href="http://t.co/m4EIQPM9h4">http://t.co/m4EIQPM9h4</a></p>&mdash; RubyGems (@rubygems) <a href="https://twitter.com/rubygems/status/518821243320287232?ref_src=twsrc%5Etfw">October 5, 2014</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<h1 id="timeline">Timeline</h1>
+<p>An example of pulling from a timeline:</p>
+<div class="jekyll-twitter-plugin"><a class="twitter-timeline" data-width="500" data-tweet-limit="3" href="https://twitter.com/jekyllrb?ref_src=twsrc%5Etfw">Tweets by jekyllrb</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<h1 id="additional-details">Additional Details</h1>
+<p>For more details on using the plugin visit: <a href="https://github.com/rob-murray/jekyll-twitter-plugin">jekyll-twitter-plugin</a></p>]]></content><author><name></name></author><category term="sample-posts" /><category term="external-services" /><category term="formatting" /><summary type="html"><![CDATA[an example of a blog post with twitter]]></summary></entry></feed>
