@@ -1,9 +1,8 @@
 ---
 layout: post
 title: python pdb调试
-description: python pdb调试
-tags: python
-categories: sample-posts
+description: an example of a blog post with giscus comments
+categories: sample-posts external-services
 giscus_comments: true
 related_posts: false
 ---
