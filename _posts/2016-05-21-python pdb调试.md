@@ -9,7 +9,6 @@ disqus_comments: true
 
 ## 在python中使用pdb模块可以进行调试
 
-
 ``` python
 import pdb
 pdb.set_trace()
