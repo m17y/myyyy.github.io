@@ -1,8 +1,6 @@
 ---
 layout: post
-title: new-skill-link!
-tags: ["干货"]
-description: 不断的学习，越努力越幸福。
+tags: tornado
 ---
 
 ##预备知识

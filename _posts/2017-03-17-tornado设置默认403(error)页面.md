@@ -1,10 +1,9 @@
-# coding=utf-8
-# ---
-# layout: post
-# title: tornado设置默认403(error页面)!
-# tags: ["tornado"]
-# description: 不断的学习，越努力越幸福。
-# ---
+---
+layout: post
+tags: tornado
+---
+
+``` python
 import os
 import tornado
 import tornado.options
@@ -55,3 +54,4 @@ if __name__ == '__main__':
         http_server.listen(options.port)
         print(options.port)
         tornado.ioloop.IOLoop.instance().start()
+```
