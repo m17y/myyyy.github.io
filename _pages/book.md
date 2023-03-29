@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: page
 permalink: /book/
 title: 愫读
 description: 读万卷书.

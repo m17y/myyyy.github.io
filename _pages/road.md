@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: page
 permalink: /road/
 title: 愫游
 description: 行万里路.
