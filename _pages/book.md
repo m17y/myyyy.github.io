@@ -3,7 +3,7 @@ layout: page
 permalink: /book/
 title: 愫读
 description: 读万卷书.
-# years: [1967, 1956, 1950, 1935, 1905]
+years: [19*,20*]
 nav: true
 nav_order: 2
 ---
