@@ -3,7 +3,6 @@ layout: page
 permalink: /book/
 title: 愫读
 description: 读万卷书.
-years: [19*,20*]
 nav: true
 nav_order: 2
 ---
