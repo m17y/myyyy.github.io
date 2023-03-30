@@ -9,9 +9,11 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>I'm a SQL 👦 & BigData 👦</p>
-    <p>预留 1</p>
-    <p>预留 2</p>
+    <p> 👦 28岁 </p>
+    <p>occupation: 高级软件工程师</p>
+    <p>address: 武汉</p>
+    <p>Wechat: UseeStarryskies</p>
+    <p>Email: myyyy.s@139.com</p>
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
