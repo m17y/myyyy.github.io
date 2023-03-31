@@ -10,7 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   address: >
     <p>高级软件工程师</p>
-    <p>address: WuHan,China</p>
+    <p>WuHan,China</p>
     <p>github: <a href='https://github.com/myyyy'>myyyy</a></p>
     <p>wechat: UseeStarryskies</p>
     <p>email: myyyy.s@139.com</p>
