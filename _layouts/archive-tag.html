@@ -4,20 +4,26 @@ layout: default
 <div class="container-fluid">
   <div class="row flex-xl-nowrap">
     <!-- 侧边栏 -->
-    <div class="col-md-3 col-xl-2 bd-sidebar">
+    <div class="col-md-3 col-xl-2 bd-sidebar" style=" border-right: 1px solid rgba(0,0,0,0.1); ">
       {% if site.display_tags %}
-      <div class="tag-list" style=" text-align: left; ">
-        <ul class="p-0 m-0">
-          {% for tag in site.display_tags %}
-            <li>
-              <i class="fas fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
-            </li>
-            {% unless forloop.last %}
-            {% endunless %}
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
+        <div class="collapse d-md-block row" id="bd-docs-nav">
+          <nav class="bd-links" aria-label="Main navigation">
+            {% for tag in site.display_tags %}
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"> {{ tag }}</a>
+              </div>
+              {% unless forloop.last %}
+              {% endunless %}
+            {% endfor %}
+              <!-- <div class="bd-toc-item active">
+                <a class="bd-toc-link" href="/docs/components/alerts/"> 组件</a>
+                <ul class="nav bd-sidenav">
+                    <li> <a href="/docs/components/alerts/">警告框（Alerts）</a></li>
+                </ul>
+              </div> -->
+          </nav>
+        </div>
+        {% endif %}
     </div>
 
 
