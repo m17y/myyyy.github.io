@@ -1,41 +1,50 @@
 ---
 layout: default
 ---
-
-<!-- <div class="post">
-  {% if site.display_tags %}
-  <div class="float-left">
-    <ul class="p-0 m-0">
-      {% for tag in site.display_tags %}
-        <li>
-          <i class="fas fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %} -->
-
-  <header class="post-header">
-    <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> {{ page.title }} </h1>
-    <p class="post-description"> an archive of posts with this tag </p>
-  </header>
-
-  <article>
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        {% for post in page.posts %}
-        <tr>
-          <th scope="row">{{ post.date | date: "%b %-d, %Y" }}</th>
-          <td>
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </td>
-        </tr>
-      {% endfor %}
-      </table>
+<div class="container-fluid">
+  <div class="row flex-xl-nowrap">
+    <!-- 侧边栏 -->
+    <div class="col-md-3 col-xl-2 bd-sidebar">
+      {% if site.display_tags %}
+      <div class="float-left">
+        <ul class="p-0 m-0">
+          {% for tag in site.display_tags %}
+              <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
+            {% unless forloop.last %}
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
     </div>
-  </article>
 
+
+    <!-- 类别 -->
+    <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+      <header class="post-header">
+        <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> {{ page.title }} </h1>
+        <p class="post-description"> an archive of posts with this tag </p>
+      </header>
+    
+      <article>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless">
+            {% for post in page.posts %}
+            <tr>
+              <th scope="row">{{ post.date | date: "%b %-d, %Y" }}</th>
+              <td>
+                  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </table>
+        </div>
+      </article>
+    </main>
+
+
+  </div>
 </div>
+
+
+
+
