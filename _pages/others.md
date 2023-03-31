@@ -5,15 +5,15 @@ nav: true
 nav_order: 999
 dropdown: true
 children: 
-    - title: cv
+    - title: 我
       permalink: /cv/
 
     - title: divider
-    - title: repositories
+    - title: 储存库
       permalink: /repositories/
 
     - title: divider
-    - title: projects
+    - title: 项目
       permalink: /projects/
 
 ---
