@@ -9,8 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p> 👦 28岁 </p>
-    <p>occupation: 高级软件工程师</p>
+    <p>高级软件工程师</p>
     <p>address: WuHan,China</p>
     <p>github: <a href='https://github.com/myyyy'>myyyy</a></p>
     <p>wechat: UseeStarryskies</p>
