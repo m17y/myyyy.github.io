@@ -145,7 +145,7 @@ giscus:
   strict: 0                     # use strict identification mode
   input_position: bottom         # whether to display input form below (bottom) or above (top) the comments
   theme: light_protanopia  # name of the color scheme (preferred works well with al-folio light/dark mode)
-  crossorigin="anonymous"
+  crossorigin: anonymous
   reactions_enabled: 1           # enable (1) or disable (0) emoji reactions
   emit_metadata: 0
   lang: en
