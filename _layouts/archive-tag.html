@@ -10,7 +10,7 @@ layout: default
           <nav class="bd-links" aria-label="Main navigation">
             {% for tag in site.display_tags %}
               <div class="bd-toc-item">
-                <a class="bd-toc-link" href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"> {{ tag }}</a>
+                <a class="bd-toc-link" href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"> <i class="fas fa-hashtag fa-sm"></i> {{ tag }}</a>
               </div>
               {% unless forloop.last %}
               {% endunless %}
@@ -30,7 +30,7 @@ layout: default
     <!-- 类别 -->
     <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
       <header class="post-header">
-        <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> {{ page.title }} </h1>
+        <h1 class="post-title">{{ page.title }} </h1>
         <p class="post-description"> an archive of posts with this tag </p>
       </header>
     
