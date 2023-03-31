@@ -11,9 +11,10 @@ profile:
   address: >
     <p> 👦 28岁 </p>
     <p>occupation: 高级软件工程师</p>
-    <p>address: 武汉</p>
-    <p>Wechat: UseeStarryskies</p>
-    <p>Email: myyyy.s@139.com</p>
+    <p>address: WuHan,China</p>
+    <p>github: <a href='https://github.com/myyyy'>myyyy</a></p>
+    <p>wechat: UseeStarryskies</p>
+    <p>email: myyyy.s@139.com</p>
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
