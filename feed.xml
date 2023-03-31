@@ -1,5 +1,424 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-31T09:33:32+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">大数据时代，如何进行数仓建模</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模" /><published>2023-02-01T00:00:00+00:00</published><updated>2023-02-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3,%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-31T09:33:47+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">大数据时代，如何进行数仓建模</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1-copy/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模" /><published>2023-02-01T00:00:00+00:00</published><updated>2023-02-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3,%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1%20copy</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1-copy/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
+<p><img src="images/e2b98638e23034c4f0442965707aa81141a0934a1a3a22c4c8efd123d8816ebc.png" alt="picture 5" /> 
+<img src="images/660889a0a7792dd522c5b687f6fe172a3ab8e023cd26508bdeb170ab02cee783.png" alt="picture 6" /></p>
+
+<ol>
+  <li>贴源数据层(ODS)，源业务系统数据的快照，保存细节数据，按天保存。
+将业务系统数据库、日志文件等数据，离线或者实时采集到数据仓库中，支持历史数据回溯。表的结构、数据类型和数据源必须保持一致，可过滤敏感字段，对不同业务类型表使用不同的分区策略；</li>
+  <li>基础数据层(DWD)，按业务概念组织细节数据，并进行名称、代码等标准化处理。
+数据来源于ODS层，面向主题建设，对业务系统数据进行抽象和集成。DW层保存最细粒度的实体数据和维度数据，完成业务元数据标准化和数据清洗工作。</li>
+  <li>通用数据层(DWM)，按照星型模型或雪花模型设计方式建设的最细业务粒度汇总层。在本层需要进行指标与维度的标准化，保证指标数据的唯一性。
+根据需求状况对DWD数据进行抽象集成，这一层数据不是必须要有的，根据业务需求决定。DWM层数据仍然不会有信息的丢失，主要是信息的快照、拼接等工作。比如业务的用户表（可能来自拉链表）、在比如用户在业务流程不同步骤信息的拼接（如用户下单、付款）</li>
+  <li>聚合数据层(DM)，数据来源于DW层，统一通用指标的业务口径，统一指标的多维度开发；标签宽表也构建于该层；DM层数据是根据业务的需求来导向的。</li>
+  <li>维度层(DIM)，维度是对具体分析对象的分析角度，维度要具备丰富的属性，历史信息的可追溯性，对通用的维表要保持一致性。</li>
+  <li>临时层(TMP)，用来降低加工过程计算难度，提高运行效率的临时表层。
+应用数据层(ADS)，这一层跟业务系统强相关，可由业务方直接开发，也可由数仓团队开发，内容跟系统需求导向的。此层不作为数仓核心分层架构。</li>
+</ol>
+
+<h2 id="表命名规范">表命名规范</h2>
+<p>常规表是我们需要固化的表，是正式使用的表，是目前一段时间内需要去维护去 完善的表。
+规范：分层前缀[dwd|dws|ads]_部门_业务域_主题域_XXX_更新周期|数据范围</p>
+
+<h2 id="周期数据范围数据表后缀">周期/数据范围（数据表后缀）：</h2>
+
+<p>日快照：d
+增量：i
+全量：f
+周：w
+拉链表：chain</p>
+
+<h1 id="数仓sqldemo">数仓SQLDemo</h1>
+<h2 id="原表数据-ods_device_active">原表数据 ods_device_active</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th style="text-align: center">字段</th>
+      <th style="text-align: center">字段类型</th>
+      <th style="text-align: center">字段描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style="text-align: center">imei</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">imei</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style="text-align: center">android_id</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">android_id</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="text-align: center">model</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">model</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="text-align: center">platform</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">平台号</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="text-align: center">app_ver</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">App版本</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="text-align: center">net</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">网络</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td style="text-align: center">region</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">region</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td style="text-align: center">sdk_ver</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">sdk_ver</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td style="text-align: center">client_time</td>
+      <td style="text-align: center">BIGINT</td>
+      <td style="text-align: center">客户端时间</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td style="text-align: center">ip</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">ip</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td style="text-align: center">properties</td>
+      <td style="text-align: center">MAP&lt;STRING,STRING&gt;</td>
+      <td style="text-align: center">额外的字段</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td style="text-align: center">etl_tm</td>
+      <td style="text-align: center">STRING</td>
+      <td style="text-align: center">etl_tm</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="激活数仓建模构架">激活数仓建模构架</h2>
+<h3 id="数仓分层设计">数仓分层设计</h3>
+<p><img src="images/d907f384aff9afc635012717dc019525ca60ffda996f2f9970bcda55689466dd.png" alt="picture 1" /><br />
+| 层级        | 表名字   |  备注  |
+| ——–   | :—–:  | :—-:  |
+| ods     | ods.ods_device_active |   |
+| dwd     | isubject.dwd_dvc_active_di |   |
+| dwd     | isubject.dwd_dvc_active_df |   |
+| dwd     | icube.ads_dvc_active_d  |   |
+| dwd     | icube.ads_dvc_active_retain_d |   |</p>
+
+<h3 id="dwd_dvc_active_di-开发">dwd_dvc_active_di 开发</h3>
+
+<pre><code class="language-SQL">insert overwrite table xxx.dwd_dvc_active_di partition( date = ${date - 1})
+select  
+imei,
+android_id,
+model,
+platform,
+app_ver,
+net,
+region,
+sdk_ver,
+ip2address(ip)[0] as country,
+ip2address(ip)[1] as province,
+ip2address(ip)[2] as city,
+properties['device'] as product,
+etl_tm,
+from_unixtime(cast(client_time/1000 as int),'yyyyMMdd')as tm,
+from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') AS etl_tm
+from ods.ods_device_active  where date=${date - 1}
+</code></pre>
+<h3 id="dwd_dvc_active_df开发">dwd_dvc_active_df开发</h3>
+
+<pre><code class="language-SQL">with tmp as (
+select  
+coalesce(t1.android_id,t2.android_id),
+coalesce(t1.region,t2.region),
+coalesce(t1.model,t2.model),
+coalesce(t1.product,t2.product),
+coalesce(t1.app_ver,t2.app_ver),
+coalesce(t1.net,t2.net),
+coalesce(t1.country,t2.country),
+coalesce(t1.province,t2.province),
+coalesce(t1.city,t2.city),
+least(t2.first_active_time,t1.first_active_time), --greatest 返回最小
+greatest(t2.last_active_time,t1.last_active_time)--greatest 返回最大
+from 
+(
+    --需要保证android_id是唯一主键
+    select 
+    android_id,region,model,product,app_ver,os_ver,
+    net,country,province,city,
+    min(tm) as first_active_time,max(tm) as last_active_time
+    from isubject.dwd_dvc_active_di 
+    where date= ${date - 1} 
+    and android_id is not null
+    group by android_id,region,model,product,app_ver,os_ver,
+    net,country,province,city
+
+)t1
+FULL JOIN (
+    select  
+    android_id,region,model,product,app_ver,os_ver,
+    net,country,province,city,
+    first_active_time,last_active_time
+    from isubject.dwd_dvc_active_di where date= ${date - 2}
+)t2
+on t1.android_id=t2.android_id
+)
+INSERT OVERWRITE TABLE isubject.dwd_dvc_active_df PARTITION(date=${date-1})
+select *,from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') AS etl_tm from tmp
+
+</code></pre>
+
+<h3 id="ads_dvc_active_d开发">ads_dvc_active_d开发</h3>
+
+<pre><code class="language-SQL">
+with tmp0 as (
+    SELECT
+    app_ver,model,os_ver,product,net,country,province,city,
+    if(first_active_time==${date - 1},1,0) as d,
+    if(first_active_time&gt;=${date - 6} and first_active_time&lt;=${date - 1},1,0) as d7,
+    if(first_active_time&gt;=${date - 29} and first_active_time&lt;=${date - 1},1,0) as d30,
+    if(last_active_time==${date - 1},1,0) as a,
+    if(last_active_time&gt;=${date - 6} and last_active_time&lt;=${date - 1},1,0) as a7,
+    if(last_active_time&gt;=${date - 29} and last_active_time&lt;=${date - 1},1,0) as a30,
+    1 as tu
+    from isubject.dwd_dvc_active_df
+    where date=${date - 1}
+),
+tmp2 as (
+    select 
+    0 as idc,--集群
+    GROUPING__ID as group_flag,
+    app_ver,model,os_ver,product,net,country,province,city,
+    sum(d),
+    sum(d7),
+    sum(d30),
+    sum(a),
+    sum(a7),
+    sum(a30),
+    sum(tu)
+    from tmp0
+    group by app_ver,model,os_ver,product,net,country,province,city
+    grouping sets (
+        ( app_ver,model,os_ver,product,net,country,province,city) 
+    )
+)
+INSERT OVERWRITE TABLE icube.ads_dvc_active_d PARTITION(date=${date-1},source='APP-A') --source 二级分区 依据需要建表时设置
+select*,from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') AS etl_tm from tmp2
+
+</code></pre>
+
+<h3 id="ads_dvc_active_retain_d">ads_dvc_active_retain_d</h3>
+
+<pre><code class="language-SQL">with tmp as (
+    select 
+    from_unixtime(unix_timestamp(startDate,'yyyy-MM-dd'),'yyyyMMdd') as base_date,
+    app_ver,model,os_ver,product,net,country,province,city,
+    count(distinct t0.android_id) as dau,
+    count(distinct if(datediff(endDate, startDate)=1,t0.android_id,null)) as retention_1d,
+    count(distinct if(datediff(endDate, startDate)=2,t0.android_id,null)) as retention_2d,
+    count(distinct if(datediff(endDate, startDate)=3,t0.android_id,null)) as retention_3d,
+    count(distinct if(datediff(endDate, startDate)=4,t0.android_id,null)) as retention_4d,
+    count(distinct if(datediff(endDate, startDate)=5,t0.android_id,null)) as retention_5d,
+    count(distinct if(datediff(endDate, startDate)=6,t0.android_id,null)) as retention_6d,
+    count(distinct if(datediff(endDate, startDate)=7,t0.android_id,null)) as retention_7d,
+    count(distinct if(datediff(endDate, startDate)=14,t0.android_id,null)) as retention_14d,
+    count(distinct if(datediff(endDate, startDate)=30,t0.android_id,null)) as retention_30d
+    from 
+    (
+        select 
+        app_ver,model,os_ver,product,net,country,province,city,
+        from_unixtime(unix_timestamp(cast(date AS string),'yyyyMMdd'),'yyyy-MM-dd') AS startDate
+        from isubject.dwd_dvc_active_df 
+        where date between ${date-30} and ${date-1}
+        and last_active_time=date
+    )t0
+    left join
+    (
+        select
+        from_unixtime(unix_timestamp(cast(date AS string),'yyyyMMdd'),'yyyy-MM-dd') AS endDate,
+        android_id
+        from isubject.dwd_dvc_active_df 
+        where date between ${date-30} and ${date-1}
+        and last_active_time=date
+        group by date,android_id
+    )t1
+    on t0.android_id=t1.android_id
+    group by startDate,app_ver,model,os_ver,product,net,country,province,city,
+
+)
+INSERT OVERWRITE TABLE icube.ads_dvc_active_retain_d PARTITION(date=${date - 1},source='APP-A')
+select
+app_ver,model,os_ver,product,net,country,province,city,
+sum(dau),
+sum(retention_1d),
+sum(retention_2d),
+sum(retention_3d),
+sum(retention_4d),
+sum(retention_5d),
+sum(retention_6d),
+sum(retention_7d),
+sum(retention_14d),
+sum(retention_30d),
+from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') as etl_tm
+from tmp
+group by app_ver,model,os_ver,product,net,country,province,city,
+
+</code></pre>
+
+<h1 id="拉链表开发">拉链表开发</h1>
+<blockquote>
+  <p>相关文档 <a href="../拉链表.pdf">拉链表介绍</a>
+基于ods.ods_device_active 贴源数据层 可以设计出基于激活拉链表，节省存储空间。
+<strong>表结构如下(字段需根据具体需求确认)</strong></p>
+</blockquote>
+
+<p>表名:isubject.dwd_dvc_active_chain
+|序号|字段|字段类型|字段描述|
+| ——– | :—–:| :—-:|:—-:|
+|1|imei|STRING|imei|
+|9|first_day|BIGINT|创建时间|
+|9|last_day|BIGINT|修改时间|
+|12|etl_tm|STRING|etl_tm|
+|9|start_day|BIGINT|start_day|
+|分区|end_day|i64|闭链时间|</p>
+
+<p><strong>SQL如下</strong></p>
+<pre><code class="language-SQL">--增量拉链
+set parquet.compression=SNAPPY;
+set hive.exec.parallel=true;
+set hive.map.aggr=true;
+set hive.merge.mapfiles = true;
+set hive.merge.mapredfiles = true;
+set hive.merge.size.per.task = 256000000;
+set hive.merge.smallfiles.avgsize = 200000000;
+set hive.input.format=org.apache.hadoop.hive.ql.io.CombineHiveInputFormat;
+
+from 
+(
+    select imei,first_day,last_day,start_day
+    from isubject.dwd_dvc_active_chain 
+    where start_day &lt;= ${date-2} and end_day &gt; ${date-2}
+)t1
+full join(
+    select imei from isubject.dwd_dvc_active_di	
+    where date=${date-1}
+    group by imei
+)t2 
+on t1.did = t2.did
+
+insert overwrite table isubject.dwd_dvc_active_chain partition(end_day=20991231)
+select
+coalesce(t2.imei,t1.imei) as imei,
+coalesce(t1.first_day,${date-1}) as first_day,
+if(isnotnull(t2.imei),${date-1},t1.last_day) as last_day,
+if(isnotnull(t2.imei),${date-1},t1.start_day) as start_day,
+from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') as etl_tm
+distribute by rand()
+
+insert overwrite table isubject.dwd_dvc_active_chain partition(end_day=${date-1})
+select 
+t1.imei,
+t1.first_day,
+t1.last_day,
+t1.start_day as start_day,
+from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') as etl_tm
+where  t1.imei is not null and  t2.imei is not null
+distribute by rand()
+;
+</code></pre>
+
+<p><strong>如果是配置表有可能需要保存删除状态，表需要增加字段del_flg，拉链表SQL如下</strong></p>
+
+<p>表名:isubject.dwd_dvc_active_chain
+|序号|字段|字段类型|字段描述|
+| ——– | :—–:| :—-:|:—-:|
+|1|imei|STRING|imei|
+|2|del_flg|STRING|del_flg|
+|3|app_ver|STRING|App_版本|
+|4|model|STRING|model|
+|5|first_day|BIGINT|创建时间|
+|6|last_day|BIGINT|修改时间|
+|7|etl_tm|STRING|etl_tm|
+|8|start_day|BIGINT|start_day|</p>
+
+<pre><code class="language-SQL">--全量拉链
+from 
+(
+    select imei,first_day,last_day,start_day
+    from isubject.dwd_dvc_active_chain 
+    where start_day &lt;= ${date-2} and end_day &gt; ${date-2}
+)t1
+full join(
+    select imei,0 as del_flg,app_ver,model from isubject.dwd_dvc_active_di	
+    where date=${date-1}
+    group by imei
+    --这个地方需要保证imei是唯一主键 才能做拉链 
+)t2 
+on t1.did = t2.did
+
+insert overwrite table isubject.dwd_dvc_active_chain partition(end_day=20991231) --最新的数据 包含删除的数据
+select
+coalesce(t2.imei,t1.imei) as imei,
+coalesce(t2.del_flg,1),
+coalesce(t2.app_ver,t1.app_ver) as app_ver,
+coalesce(t2.model,t1.model) as model,
+coalesce(t1.first_day,${date-1}) as first_day,
+if(isnotnull(t2.imei),${date-1},t1.last_day) as last_day,
+IF(
+    (t1.del_flg =1 and t2.imei IS NULL) 
+    OR (t1.imei=t2.imei and 
+    coalesce(t1.app_ver,0)=coalesce(t2.app_ver,0) and
+     coalesce(t1.model,0)=coalesce(t2.model,0)
+    ),
+    t1.start_day,${date-1}
+    ) AS start_day,
+from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') as etl_tm
+distribute by rand()
+
+insert overwrite table isubject.dwd_dvc_active_chain partition(end_day=${date-1}) --历史${date-1}天的数据,不包含${date-1}天前删除的数据
+select 
+t1.imei,
+t1.del_flg,
+t1.app_ver,
+t1.model,
+t1.first_day,
+t1.last_day,
+t1.start_day as start_day,
+from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss') as etl_tm
+where  t1.imei is not null 
+AND
+( (t2.imei is null and t1.del_flg=0 ) or 
+  (t2.imei is not null and (
+    coalesce(t1.app_ver,0)&lt;&gt;coalesce(t2.app_ver,0) or
+    coalesce(t1.model,0)&lt;&gt;coalesce(t2.model,0)
+    ))
+) 
+distribute by rand()
+;
+</code></pre>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[大数据时代，如何进行数仓建模]]></summary></entry><entry><title type="html">大数据时代，如何进行数仓建模2</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A12/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模2" /><published>2023-02-01T00:00:00+00:00</published><updated>2023-02-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3,%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A12</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A12/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
 <p><img src="images/e2b98638e23034c4f0442965707aa81141a0934a1a3a22c4c8efd123d8816ebc.png" alt="picture 5" /> 
 <img src="images/660889a0a7792dd522c5b687f6fe172a3ab8e023cd26508bdeb170ab02cee783.png" alt="picture 6" /></p>
 
@@ -1761,20 +2180,4 @@ Simply add <code class="language-plaintext highlighter-rouge">data-zoomable</cod
 </figure>
 
     </div>
-</div>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what included images could look like]]></summary></entry><entry><title type="html">文章模版【数学公式】</title><link href="https://myyyy.github.io/blog/1999/%E6%96%87%E7%AB%A0%E6%A8%A1%E7%89%88-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" rel="alternate" type="text/html" title="文章模版【数学公式】" /><published>1999-10-20T00:00:00+00:00</published><updated>1999-10-20T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/1999/%E6%96%87%E7%AB%A0%E6%A8%A1%E7%89%88%E3%80%90%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E3%80%91</id><content type="html" xml:base="https://myyyy.github.io/blog/1999/%E6%96%87%E7%AB%A0%E6%A8%A1%E7%89%88-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"><![CDATA[<p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/">MathJax 3</a> engine. You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>. If you leave it inside a paragraph, it will produce an inline expression, just like \(E = mc^2\).</p>
-
-<p>To use display mode, again surround your expression with <code class="language-plaintext highlighter-rouge">$$</code> and place it as a separate paragraph. Here is an example:</p>
-
-\[\sum_{k=1}^\infty |\langle x, e_k \rangle|^2 \leq \|x\|^2\]
-
-<p>You can also use <code class="language-plaintext highlighter-rouge">\begin{equation}...\end{equation}</code> instead of <code class="language-plaintext highlighter-rouge">$$</code> for display mode math.
-MathJax will automatically number equations:</p>
-
-<p>\begin{equation}
-\label{eq:cauchy-schwarz}
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-\end{equation}</p>
-
-<p>and by adding <code class="language-plaintext highlighter-rouge">\label{...}</code> inside the equation environment, we can now refer to the equation using <code class="language-plaintext highlighter-rouge">\eqref</code>.</p>
-
-<p>Note that MathJax 3 is <a href="https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html">a major re-write of MathJax</a> that brought a significant improvement to the loading and rendering speed, which is now <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php">on par with KaTeX</a>.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="math" /><summary type="html"><![CDATA[an example of a blog post with some math]]></summary></entry></feed>
+</div>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what included images could look like]]></summary></entry></feed>
