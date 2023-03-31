@@ -6,11 +6,14 @@ layout: default
     <!-- 侧边栏 -->
     <div class="col-md-3 col-xl-2 bd-sidebar">
       {% if site.display_tags %}
-      <div class="float-left">
+      <div class="tag-list">
         <ul class="p-0 m-0">
           {% for tag in site.display_tags %}
-              <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
+            <li>
+              <i class="fas fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
+            </li>
             {% unless forloop.last %}
+              <p>&bull;</p>
             {% endunless %}
           {% endfor %}
         </ul>
