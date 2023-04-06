@@ -2,7 +2,8 @@
 layout: about
 title: 首页
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle:  
+# <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
@@ -23,9 +24,11 @@ social: true  # includes social icons at the bottom of the page
 ## 🧑‍💻 技术
 
 **NO.1** Big Data（Now Work 5years）
+
 Spark、Flink、Hive、SparkSQL、Iceberg、Hbase
 
 **NO.2**  Web development（before Work 2years）
+
 Python、JavaScript、Tornado、MongoDB、Redis、html、Java
 
 **Other**
