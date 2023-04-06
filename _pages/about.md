@@ -28,7 +28,7 @@ Spark、Flink、Hive、SparkSQL、Iceberg、Hbase
 
 **NO.2**  Web development（before Work 2years）
 
-Python、JavaScript、Tornado、MongoDB、Redis、html、Java
+Python、JavaScript、Tornado、MongoDB、Redis、Html、Java
 
 **Other**
 
