@@ -36,6 +36,7 @@ Python、JavaScript、Tornado、MongoDB、Redis、html、Java
 ## 🌈 生活
 
 一切特立独行的人格都意味着强大。--加缪
+
 除了没用的肉体自杀和精神逃避，第三种自杀的态度是坚持奋斗，对抗人生的荒谬。 --加缪
 
 爱好: 
