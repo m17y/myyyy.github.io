@@ -10,9 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>docker入门 | myyyy .S </title>
+    <title>Chatgpt | myyyy .S </title>
     <meta name="author" content="myyyy .S ">
-    <meta name="description" content="docker的初步应用">
+    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -33,7 +34,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%8C&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/">
+    <link rel="canonical" href="https://myyyy.github.io/blog/tag/chatgpt/">
     
     <!-- Dark Mode -->
     
@@ -120,147 +121,86 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <!-- _layouts/post.html -->
-
-<div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">docker入门</h1>
-    <p class="post-meta">March 17, 2017</p>
-    <p class="post-tags">
-      <a href="/blog/2017"> <i class="fas fa-calendar fa-sm"></i> 2017 </a>
-        ·  
-        <a href="/blog/tag/other">
-          <i class="fas fa-hashtag fa-sm"></i> other</a>  
-          
-
-    </p>
-  </header>
-
-  <article class="post-content">
-    <p>#docker的环境配置</p>
-
-<blockquote>
-  <p>sudo apt-get update
-sudo apt-get install docker.io</p>
-</blockquote>
-
-<p>#docker加速器配置</p>
-
-<p>使用配置文件 /etc/docker/daemon.json（没有时新建该文件）
-{
-   “registry-mirrors”: [“<your accelerate="" address="">"]
-}
-注:基于阿里云的镜像加速</your></p>
-
-<h1 id="下拉项目运行环境">下拉项目运行环境</h1>
-
-<p>sudo docker pull registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 
-注:可跟你不同项目的需要配置不同的运行环境</p>
-
-<p>#运行docker image</p>
-
-<p>docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash</p>
-
-<p>#编写脚本文件</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name:up.sh
-#!/bin/bash
-docker stop web
-docker rm -v web
-
-docker run --name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
-</code></pre></div></div>
-
-<p>#命令</p>
-<ol>
-  <li>退出docker容器(非中断模式)
-    <ul>
-      <li>ctrl + P ctrl + q</li>
-    </ul>
-  </li>
-  <li>进入docker image
-    <ul>
-      <li>docker exec -it container_id bash #不会终止</li>
-      <li>docker attach <container> #需要注意的是，如果从这个stdin中exit，会导致容器的停止</container>
-</li>
-    </ul>
-  </li>
-  <li>检查容器运行
-    <ul>
-      <li>docker ps</li>
-      <li>docker ps -a</li>
-    </ul>
-  </li>
-  <li>查看容器信息
-    <ul>
-      <li>docker inspect <container></container>
-</li>
-    </ul>
-  </li>
-  <li>杀死or删除
-    <ul>
-      <li>docker stop <container></container>
-</li>
-      <li>docker kill <container></container>
-</li>
-      <li>docker rm <container></container>
-</li>
-      <li>docker rm $(docker ps -aq) #移除所有</li>
-    </ul>
-  </li>
-</ol>
-
-<p>#参考链接</p>
-<blockquote>
-  <p><a href="http://www.linuxidc.com/Linux/2015-05/117510.htm" rel="external nofollow noopener" target="_blank">docker命令简单介绍</a></p>
-</blockquote>
+      <div class="container-fluid">
+  <div class="row flex-xl-nowrap">
+    <!-- 侧边栏 -->
+    <div class="col-md-3 col-xl-2 bd-sidebar" style=" border-right: 1px solid rgba(0,0,0,0.1); ">
+      
+        <div class="collapse d-md-block row" id="bd-docs-nav">
+          <nav class="bd-links" aria-label="Main navigation">
+            
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="/blog/tag/bigdata"> <i class="fas fa-hashtag fa-sm"></i> bigdata</a>
+              </div>
+              
+            
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="/blog/tag/spark"> <i class="fas fa-hashtag fa-sm"></i> spark</a>
+              </div>
+              
+            
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="/blog/tag/flink"> <i class="fas fa-hashtag fa-sm"></i> flink</a>
+              </div>
+              
+            
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="/blog/tag/hive"> <i class="fas fa-hashtag fa-sm"></i> hive</a>
+              </div>
+              
+            
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="/blog/tag/python"> <i class="fas fa-hashtag fa-sm"></i> python</a>
+              </div>
+              
+            
+              <div class="bd-toc-item">
+                <a class="bd-toc-link" href="/blog/tag/other"> <i class="fas fa-hashtag fa-sm"></i> other</a>
+              </div>
+              
+            
+              <!-- <div class="bd-toc-item active">
+                <a class="bd-toc-link" href="/docs/components/alerts/"> 组件</a>
+                <ul class="nav bd-sidenav">
+                    <li> <a href="/docs/components/alerts/">警告框（Alerts）</a></li>
+                </ul>
+              </div> -->
+          </nav>
+        </div>
+        
+    </div>
 
 
-  </article>
-
-
-  
+    <!-- 类别 -->
+    <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+      <header class="post-header">
+        <h1 class="post-title">Chatgpt </h1>
+        <p class="post-description"> an archive of posts with this tag </p>
+      </header>
     
-    <br>
-    <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
+      <article>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless">
+            
+            <tr>
+              <th scope="row">Apr 11, 2023</th>
+              <td>
+                  <a class="post-link" href="/blog/2023/Chatgpt-%E8%99%9A%E6%9E%84%E4%BA%BA%E7%89%A9%E6%B5%8B%E8%AF%95/">Chatgpt 虚构人物测试</a>
+              </td>
+            </tr>
+          
+          </table>
+        </div>
+      </article>
+    </main>
 
-    <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
-    <p class="mb-2">Here are some more articles you might like to read next:</p>
-  
 
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/Chatgpt-%E8%99%9A%E6%9E%84%E4%BA%BA%E7%89%A9%E6%B5%8B%E8%AF%95/">Chatgpt 虚构人物测试</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/">大数据时代，如何进行数仓建模</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/tornado%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4403(error)%E9%A1%B5%E9%9D%A2/">Tornado设置默认403(error)页面</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop/">Tornado源码解析之ioloop</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2016/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95/">动态获取对象属性</a>
-  </li>
-
+  </div>
 </div>
+
+
+
+
 
     </div>
 
