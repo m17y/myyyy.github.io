@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="引言">引言</h1>
+
+<p>在漫谈小文件问题之前，先介绍几个重要的知识点.</p>
+
+<p><strong>“块”(block)</strong></p>
+
+<p>文件储存在硬盘上，硬盘的最小存储单位叫做”扇区”（Sector）。每个扇区储存512字节（相当于0.5KB）。
+操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个”块”（block）。这种由多个扇区组成的”块”，是文件存取的最小单位。”块”的大小，最常见的是4KB，即连续八个 sector组成一个 block。</p>
+
+<p><strong>磁盘inode:</strong></p>
+
+<p>记录储存文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。这种储存文件元信息的区域就叫做inode，中文译名为”索引节点”。inode是有限的。试想，当有成千上万的小文件存在于服务器的文件系统当中时，最先消耗完的肯定不是磁盘的空间，而是inode，这就会导致大量的空闲空间无法使用。（深入了解inode可查看<a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" rel="external nofollow noopener" target="_blank">这篇大佬的博客</a>）</p>
+
+<p><strong>NameNode（HDFS）:</strong></p>
+
+<p>NameNode管理着整个HDFS文件系统的元数据。 存储着数据文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。数据存储在内存中。</p>
+
+<p><strong>在这里我用一个图描述一下，方便大家记忆</strong>
+ <img src="images/20220705115420.png" alt=""></p>
+
+<h1 id="小文件的定义-hdfs">小文件的定义 (HDFS)</h1>
+<p>在HDFS中，一个bolck块的默认大小是128M，当一个文件的大小小于一个block的大小，则被认为是小文件。</p>
+
+<p><strong>工厂小文件特征项解释:</strong>
+同一分区目录或文件目录下，存在文件数量 &gt; 10，且文件平均大小 &lt; 128MB，则称该分区下「小文件过多」。表最近七天修改的路径存在小文件过多，则记为0分</p>
+
+<h1 id="小文件的危害">小文件的危害</h1>
+<p>对于硬盘:</p>
+<ol>
+  <li>不合理的消耗inode的空间，且会造成磁盘利用率很低。</li>
+  <li>因为读取文件首先读写的是inode，小文件过多会影响文件的读取速度。</li>
+</ol>
+
+<p>对于数据处理（Spark、hive、HDFS等）</p>
+<ol>
+  <li>NameNode（HDFS）需要的内存大大增大，增加NameNode压力，这样会限制了集群的扩展。</li>
+  <li>在HDFS中，小文件的读写处理速度要远远小于大文件。</li>
+  <li>Hive中，小文件会开很多map，一个map开一个JVM去执行，所以这些任务的初始化，启动，执行会浪费大量的资源，严重影响性能。</li>
+</ol>
+
+<h1 id="如何处理小文件">如何处理小文件</h1>
+
+<h2 id="hive">Hive</h2>
+
+<pre><code class="language-SQL">--添加设置参数即可处理小文件 
+-- 如果一个 job 结束后，生成的文件的平均大小 小于 参数 hive.merge.smallfiles.avgsize 设定的值，则认为是小文件。则按照 hive.merge.size.per.task 设定至进行合并
+-- 如果一个 job 结束后，生成的文件的平均大小 小于 200M 则按照256M一个文件进行合并
+set hive.merge.mapfiles = true;
+set hive.merge.mapredfiles = true;
+set hive.merge.size.per.task = 256000000;
+set hive.merge.smallfiles.avgsize = 200000000;
+</code></pre>
+
+<h2 id="sparksql">SparkSQL</h2>
+
+<h4 id="方法一">方法一:</h4>
+<pre><code class="language-SQL">-- 使用进行小文件治理  distribute by cast( rand * N as int) 这里的N是指具体最后落地生成多少个文件数
+-- distribute by cast(rand() * 10 as int);  生产10个文件 如数据文件总大小为1G则生产10个100m的文件
+
+例如:
+set spark.sql.shuffle.partitions=50;
+set spark.sql.adaptive.minNumPostShufflePartitions=1;
+set spark.sql.adaptive.enabled=true;
+set spark.sql.adaptive.shuffle.targetPostShuffleInputSize=256000000;
+insert overwrite table xxx.xxx partition (date = ${date - 1})
+select * from xxx.xxx
+distribute by cast(rand() * 10 as int)
+</code></pre>
+
+<h2 id="spark">Spark</h2>
+<pre><code class="language-Scala">df.coalesce(numFiles,true).write.mode(SaveMode.Overwrite).parquet(dest) //不触发shuffle，比如将1000个文件合并成100个
+df.coalesce(numFiles,false).write.mode(SaveMode.Overwrite).parquet(dest) //触发shuffle，比如将1个文件拆分成10个文件 ==repartition
+
+df.repartition(numFiles).write.mode(SaveMode.Overwrite).parquet(dest) //触发shuffle，比如将1个文件拆分成10个文件
+
+</code></pre>
+
+<h4 id="方法二">方法二:</h4>
+
+<p>Coalesce and Repartition Hint
+将Hive风格的Coalesce and Repartition Hint 应用到Spark SQL需要注意这种方式对Spark的版本有要求，建议在Spark2.4.X及以上版本使用，示例：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT ... SELECT /*+ COALESCE(numPartitions) */ ...
+INSERT ... SELECT /*+ REPARTITION(numPartitions) */ ...
+</code></pre></div></div>
+<p>repartition只是coalesce接口中shuffle为true的实现<br>
+coalesce中的shuffle参数设置为true,会重新混洗分区,涉及shuffle过程
+coalesce shuffle参数为false的情况, 涉及shuffle过程, 它是合并分区, 比如把原来1000个分区合并成100个,</p>
+
+<p><strong>shuffle的‘危害’</strong>
+coalesce 和 repartition 这两个算子都是用于数据重分布、调整任务的并行度，以便提升 CPU 的使用效率
+但是它有个致命的缺陷，无论是增加分区数还是减少分区数，repartition 算子都是通过 shuffle 实现的，shuffle 就是把数据打乱，将数据重新分发，可以结合下面这张图理解。
+<img src="images/20220705104610.png" alt=""><br>
+shuffle 势必就会导致磁盘 IO 和 网络 IO 开销较大，性能也就会下降。</p>
+
+<p><a href="https://blog.csdn.net/Lzx116/article/details/124918769" rel="external nofollow noopener" target="_blank">Coalesce and Repartition 区别 详见</a></p>
+
+<h2 id="flink">Flink</h2>
+<h4 id="方法一减小并行度">方法一:减小并行度</h4>
+<ol>
+  <li>并行度设置之Operator Level
+算子、数据源和sink的并行度可以通过调用 <strong>setParallelism()</strong> 方法来指定
+    <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">StreamExecutionEnvironment</span> <span class="n">env</span> <span class="o">=</span> <span class="nc">StreamExecutionEnvironment</span><span class="o">.</span><span class="na">getExecutionEnvironment</span><span class="o">();</span>
+<span class="nc">DataStream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">text</span> <span class="o">=</span> <span class="o">[...]</span>
+<span class="nc">DataStream</span><span class="o">&lt;</span><span class="nc">Tuple2</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">wordCounts</span> <span class="o">=</span> <span class="n">text</span>
+<span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="k">new</span> <span class="nc">LineSplitter</span><span class="o">())</span>
+<span class="o">.</span><span class="na">keyBy</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
+<span class="o">.</span><span class="na">timeWindow</span><span class="o">(</span><span class="nc">Time</span><span class="o">.</span><span class="na">seconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+<span class="o">.</span><span class="na">sum</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">setParallelism</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+<span class="n">wordCounts</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>
+<span class="n">env</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">"Word Count Example"</span><span class="o">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>并行度设置之Execution Environment Level
+执行环境(任务)的默认并行度可以通过调用<strong>env.setParallelism(3)</strong>方法指定。为了以并行度3来执行所有的算子、数据源和data sink， 可以通过如下的方式设置执行环境的并行度：
+    <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">StreamExecutionEnvironment</span> <span class="n">env</span> <span class="o">=</span> <span class="nc">StreamExecutionEnvironment</span><span class="o">.</span><span class="na">getExecutionEnvironment</span><span class="o">();</span>
+<span class="n">env</span><span class="o">.</span><span class="na">setParallelism</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="nc">DataStream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">text</span> <span class="o">=</span> <span class="o">[...]</span>
+<span class="nc">DataStream</span><span class="o">&lt;</span><span class="nc">Tuple2</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">wordCounts</span> <span class="o">=</span> <span class="o">[...]</span>
+<span class="n">wordCounts</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>
+<span class="n">env</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="s">"Word Count Example"</span><span class="o">);</span>
+</code></pre></div>    </div>
+    <h4 id="方法二-1">方法二:</h4>
+    <p>下游任务合并处理，Flink将数据写入到HDFS后，开启Hive或Spark定时任务，通过改变分区方式将数据写入新目录。</p>
+  </li>
+</ol>
+
+<h1 id="思考">思考</h1>
+<ol>
+  <li>文件并不是越大越好吗
+    <ul>
+      <li>如果块的大小设置过于大，寻址时间很快，但是数据传输的</li>
+      <li>造成分区数据倾斜，严重影响处理效率。</li>
+    </ul>
+  </li>
+</ol>
+
+<p>在这里要说明一下 适当的文件个数能提高下游任务数据并行度，太多的小文件对后续使用该表进行计算时会启动很多不必要的maptask，任务耗时高。</p>
+
+<ol>
+  <li>distribute by rand()的作用
+distribute by ：用来控制map输出结果的分发，即map端如何拆分数据给reduce端。 会根据distribute by 后边定义的列，根据reduce的个数进行数据分发，默认是采用hash算法。
+当 distribute by 后边跟的列是：rand()时，即保证每个分区的数据量基本一致。</li>
+</ol>
+
+<p><strong>简而言之，是对数据进行重新分割的一个语法，保障分割后的每个文件的数据量基本一致。</strong></p>
+
+<blockquote>
+  <p>在这里给大家提个个问题 如果一个SQL生成文件的大小为50G 使用Spark distribute by cast(rand() * 1 as int) 生产一个文件 会产生什么问题?</p>
+</blockquote>
+
+<p>这里直接说结果 如果没有其他配置参数的话会报一个OOM
+在生产1个文件这个阶段涉及 CustomShuffleReader 这个过程
+<img src="images/20220705164426.png" alt=""></p>
+
+<p>抓过来的数据首先肯定是放在Reducer端的内存缓存区中的（Spark曾经有版本要求只放在内存缓存中，数据结构类似于HashMap（AppendOnlyMap）显然特别消耗内存和极易出现OOM，同时也从Reducer端极大的限制了Spark集群的规模），现在的实现都是内存+磁盘的方式(数据结构使用ExternalAppendOnlyMap)，当然也可以通过Spark.shuffle.spill=false来设置只能使用内存。使用ExternalAppendOnlyMap的方式时候如果内存使用达到一定临界值，会首先尝试在内存中扩大ExternalAppendOnlyMap（内部有实现算法），如果不能扩容的话才会spill到磁盘。
+<img src="images/20220705170336.png" alt=""></p>
+
+<p><strong>hive sql 原理和spark差不多</strong></p>
+
+<h1 id="文章参考">文章参考</h1>
+
+<ol>
+  <li><a href="http://www.pingtaimeng.com/article/detail/id/2119447" rel="external nofollow noopener" target="_blank">深入理解web开发中海量小文件带来的的危害及解决方案</a></li>
+  <li><a href="http://t.zoukankan.com/thinksasa-p-3013445.html" rel="external nofollow noopener" target="_blank">深入理解磁盘文件系统之inode</a></li>
+  <li><a href="https://zhuanlan.zhihu.com/p/67061627" rel="external nofollow noopener" target="_blank">Spark Shuffle 详解</a></li>
+</ol>
+</body></html>
