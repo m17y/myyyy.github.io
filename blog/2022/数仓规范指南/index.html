@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tornado源码解析之ioloop | myyyy .S </title>
+    <title>数仓规范指南 | myyyy .S </title>
     <meta name="author" content="myyyy .S ">
     <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 ">
@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%8C&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://myyyy.github.io/blog/2017/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop/">
+    <link rel="canonical" href="https://myyyy.github.io/blog/2022/%E6%95%B0%E4%BB%93%E8%A7%84%E8%8C%83%E6%8C%87%E5%8D%97/">
     
     <!-- Dark Mode -->
     
@@ -126,128 +126,54 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Tornado源码解析之ioloop</h1>
-    <p class="post-meta">March 15, 2017</p>
+    <h1 class="post-title">数仓规范指南</h1>
+    <p class="post-meta">October 22, 2022</p>
     <p class="post-tags">
-      <a href="/blog/2017"> <i class="fas fa-calendar fa-sm"></i> 2017 </a>
+      <a href="/blog/2022"> <i class="fas fa-calendar fa-sm"></i> 2022 </a>
         ·  
-        <a href="/blog/tag/python">
-          <i class="fas fa-hashtag fa-sm"></i> python</a>  
+        <a href="/blog/tag/bigdata">
+          <i class="fas fa-hashtag fa-sm"></i> bigdata</a>  
           
 
     </p>
   </header>
 
   <article class="post-content">
-    <p>##预备知识</p>
-
+    <h3 id="引用">引用</h3>
 <ol>
-  <li>hasattr()&amp;getattr()
-    <ul>
-      <li>hasattr(object, name):判断一个对象是否有’name’属性或者’name’方法
- *getattr(object, name[,default]):获取对象object的属性或者方法，如果存在打印出来，如果不存在，打印出默认值，默认值可选。(如果获得的是方法,则返回的是方法的内存地址,有需要运行则需要加’()’)</li>
-    </ul>
-  </li>
-  <li>classmethod &amp; staticmethod
-    <ul>
-      <li>待完善</li>
-    </ul>
-  </li>
-  <li>future模块&amp;yeild
-    <ul>
-      <li>future:Python提供了__future__模块，把下一个新版本的特性导入到当前版本</li>
-      <li>yeild: yield的英文单词意思是生产,若某个函数包含yield，这意味着这个函数已经是一个Generator<a href="http://www.pythontab.com/html/2015/pythonhexinbiancheng_0415/946.html" rel="external nofollow noopener" target="_blank">深入理解yield</a>
-</li>
-    </ul>
-  </li>
-  <li>python concurrent 模块
-    <ul>
-      <li>因python GIL全局锁的机制,产生了<a href="http://www.bubuko.com/infodetail-167068.html" rel="external nofollow noopener" target="_blank">concurrent</a>一个实现并发的模块</li>
-    </ul>
-  </li>
-  <li>NotImplementedError()异常处理机制
-    <ul>
-      <li>NotImplemented 是一个非异常对象，NotImplementedError 是一个异常对象.<a href="http://www.tuicool.com/articles/JRb6Zr" rel="external nofollow noopener" target="_blank">参考链接</a>
- *<a href="https://segmentfault.com/q/1010000005012781" rel="external nofollow noopener" target="_blank">tornado 预定义接口返回异常的好处</a> 
- *<a href="https://blog.zorro.im/tornado-configurable/" rel="external nofollow noopener" target="_blank">tornado Configureable类</a>
-</li>
-    </ul>
-  </li>
-  <li>
-    <p>Synchronous(同步)&amp;Asynchronous(异步)
- *理解概念<a href="http://www.cnblogs.com/anny0404/p/5691379.html" rel="external nofollow noopener" target="_blank">链接</a></p>
-  </li>
-  <li>
-    <p>fileno()文件描述符
- *件描述符（File descriptor）是计算机科学中的一个术语，是一个用于表述指向文件的引用的抽象化概念。</p>
-
-    <ul>
-      <li>文件描述符在形式上是一个非负整数。实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表。当程序打开一个现有文件或者创建一个新文件时，内核向进程返回一个文件描述符。在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统</li>
-    </ul>
-  </li>
-  <li>double ckeck问题
-    <div class="language-plaintext highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code> if not hasattr(IOLoop, "_instance"):
- with IOLoop._instance_lock:
-     if not hasattr(IOLoop, "_instance"):
-         # New instance after double check
-         IOLoop._instance = IOLoop()
-</code></pre></div>    </div>
-
-    <ul>
-      <li><a href="http://www.jb51.net/article/80363.htm" rel="external nofollow noopener" target="_blank">torndao中单例模式的应用</a></li>
-    </ul>
-  </li>
-  <li>select、poll、epoll
-    <ul>
-      <li><a href="Linux%20IO%E6%A8%A1%E5%BC%8F%E5%8F%8A%20select%E3%80%81poll%E3%80%81epoll%E8%AF%A6%E8%A7%A3">Linux IO模式及 select、poll、epoll详解</a></li>
-    </ul>
-  </li>
+  <li><a href="https://www.cnblogs.com/itlz/p/15539258.html" rel="external nofollow noopener" target="_blank">数仓规范指南</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/9YR2FBfo1ufyF2G-M-JNhQ" rel="external nofollow noopener" target="_blank">美团数据平台及数仓建设实践，超十万字总结</a></li>
 </ol>
 
-  </article>
+
+  </article><div id="giscus_thread" style="max-width: 800px; margin: 0 auto;">
+  <script>
+    let giscusTheme = localStorage.getItem("theme");
+    let giscusAttributes = {
+        "src": "https://giscus.app/client.js",
+        "data-repo": "alshedivat/al-folio",
+        "data-repo-id": "MDEwOlJlcG9zaXRvcnk4MjE0MTk4Mw==",
+        "data-category": "Comments",
+        "data-category-id": "DIC_kwDOBOVjH84CVb7H",
+        "data-mapping": "title",
+        "data-strict": "1",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-input-position": "bottom",
+        "data-theme": giscusTheme,
+        "data-lang": "en",
+        "crossorigin": "anonymous",
+        "async": "",
+    };
 
 
-  
-    
-    <br>
-    <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
-
-    <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
-    <p class="mb-2">Here are some more articles you might like to read next:</p>
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/Chatgpt-%E8%99%9A%E6%9E%84%E4%BA%BA%E7%89%A9%E6%B5%8B%E8%AF%95/">Chatgpt 虚构人物测试</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88/">小文件漫谈[大数据成长之路]</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C/">列存储与向量化执行</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/">大数据时代，如何进行数仓建模</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2022/%E6%95%B0%E4%BB%93%E8%A7%84%E8%8C%83%E6%8C%87%E5%8D%97/">数仓规范指南</a>
-  </li>
-
+    let giscusScript = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+    document.getElementById("giscus_thread").appendChild(giscusScript);
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
+</noscript>
+</div>
 </div>
 
     </div>
