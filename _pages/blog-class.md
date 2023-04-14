@@ -1,7 +1,7 @@
 ---
 layout: archive-tag
 permalink: /blog/tag/bigdata
-title: 分类
+title: bigdata
 nav: true
 nav_order: 4
 ---
