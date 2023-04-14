@@ -264,7 +264,7 @@ jekyll-archives:
     tag: '/blog/tag/:name/'
     category: '/blog/category/:name/'
 
-display_tags: ['bigdata','spark', 'flink','hive', 'python', 'other'] # this tags will be dispalyed on the front page of your blog
+display_tags: ['大数据成长之路','bigdata','spark', 'flink','hive', 'python', 'other'] # this tags will be dispalyed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
