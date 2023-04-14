@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-14T07:00:44+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-14T07:05:32+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 </subtitle><entry><title type="html">Chatgpt 虚构人物测试</title><link href="https://myyyy.github.io/blog/2023/Chatgpt-%E8%99%9A%E6%9E%84%E4%BA%BA%E7%89%A9%E6%B5%8B%E8%AF%95/" rel="alternate" type="text/html" title="Chatgpt 虚构人物测试" /><published>2023-04-11T00:00:00+00:00</published><updated>2023-04-11T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/Chatgpt%20%E8%99%9A%E6%9E%84%E4%BA%BA%E7%89%A9%E6%B5%8B%E8%AF%95</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/Chatgpt-%E8%99%9A%E6%9E%84%E4%BA%BA%E7%89%A9%E6%B5%8B%E8%AF%95/"><![CDATA[<h1 id="人物生成">人物生成</h1>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
@@ -32,7 +32,7 @@
 工作：时尚博主
 收入：15000RMB
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="Chatgpt" /><summary type="html"><![CDATA[人物生成]]></summary></entry><entry><title type="html">大数据成长之路 小文件漫谈</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88/" rel="alternate" type="text/html" title="大数据成长之路 小文件漫谈" /><published>2023-04-01T00:00:00+00:00</published><updated>2023-04-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88/"><![CDATA[<h1 id="引言">引言</h1>
+</code></pre></div></div>]]></content><author><name></name></author><category term="Chatgpt" /><summary type="html"><![CDATA[人物生成]]></summary></entry><entry><title type="html">小文件漫谈[大数据成长之路]</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88/" rel="alternate" type="text/html" title="小文件漫谈[大数据成长之路]" /><published>2023-04-01T00:00:00+00:00</published><updated>2023-04-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF-%E5%B0%8F%E6%96%87%E4%BB%B6%E6%BC%AB%E8%B0%88/"><![CDATA[<h1 id="引言">引言</h1>
 
 <p>在漫谈小文件问题之前，先介绍几个重要的知识点.</p>
 
@@ -197,18 +197,7 @@ distribute by ：用来控制map输出结果的分发，即map端如何拆分数
   <li><a href="http://www.pingtaimeng.com/article/detail/id/2119447">深入理解web开发中海量小文件带来的的危害及解决方案</a></li>
   <li><a href="http://t.zoukankan.com/thinksasa-p-3013445.html">深入理解磁盘文件系统之inode</a></li>
   <li><a href="https://zhuanlan.zhihu.com/p/67061627">Spark Shuffle 详解</a></li>
-</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">列存储与向量化执行</title><link href="https://myyyy.github.io/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C/" rel="alternate" type="text/html" title="列存储与向量化执行" /><published>2023-03-01T00:00:00+00:00</published><updated>2023-03-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C/"><![CDATA[<hr />
-<p>layout: post
-title: 列存储与向量化执行
-description: 
-tags: [“bigdata”]
-giscus_comments: true
-related_posts: false</p>
-<h1 id="tags-tags-配置路径--_configyml---display_tags">tags: tags 配置路径:  _config.yml -&gt; display_tags</h1>
-<h1 id="giscus_comments-git-留言框">giscus_comments: git 留言框</h1>
-<hr />
-
-<h1 id="什么是列存储">什么是列存储</h1>
+</ol>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[引言]]></summary></entry><entry><title type="html">列存储与向量化执行</title><link href="https://myyyy.github.io/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C/" rel="alternate" type="text/html" title="列存储与向量化执行" /><published>2023-03-01T00:00:00+00:00</published><updated>2023-03-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%88%97%E5%AD%98%E5%82%A8%E4%B8%8E%E5%90%91%E9%87%8F%E5%8C%96%E6%89%A7%E8%A1%8C/"><![CDATA[<h1 id="什么是列存储">什么是列存储</h1>
 
 <blockquote>
   <p>我们知道，在SQL Server里，Page是数据存储的基本单位，而数据行是实际数据的存储单位，它们从Page &gt; Header之后就开始依次存储在Page上。这种按行在Page上存储记录的方式就是行存储。当数据是按单列而不是多行进行连续存储时，就是所谓的列存储。</p>
@@ -259,7 +248,7 @@ related_posts: false</p>
   <li>向量化执行引擎可以减少节点间的调度，提高CPU的利用率</li>
   <li>因为列存数据，同一列的数据放在一起，导致向量化执行引擎在执行的时候拥有了更多的机会能够利用的当前硬件与编译的新优化特征</li>
   <li>因为列存数据存储将同类型的类似数据放在一起使得压缩比能够达到更高，这样可以拉近一些磁盘IO能力与计算能力的差距</li>
-</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[layout: post title: 列存储与向量化执行 description: tags: [“bigdata”] giscus_comments: true related_posts: false tags: tags 配置路径: _config.yml -&gt; display_tags giscus_comments: git 留言框]]></summary></entry><entry><title type="html">大数据时代，如何进行数仓建模</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模" /><published>2023-02-01T00:00:00+00:00</published><updated>2023-02-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
+</ol>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[什么是列存储]]></summary></entry><entry><title type="html">大数据时代，如何进行数仓建模</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模" /><published>2023-02-01T00:00:00+00:00</published><updated>2023-02-01T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
 <p><img src="images/e2b98638e23034c4f0442965707aa81141a0934a1a3a22c4c8efd123d8816ebc.png" alt="picture 5" /> 
 <img src="images/660889a0a7792dd522c5b687f6fe172a3ab8e023cd26508bdeb170ab02cee783.png" alt="picture 6" /></p>
 
