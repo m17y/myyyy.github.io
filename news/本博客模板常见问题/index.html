@@ -147,7 +147,8 @@
 <h3 id="部署">部署</h3>
 <p>TODO:</p>
 
-<h3 id="愫记页面发布文章">【愫记】页面发布文章</h3>
+<h3 id="愫记页面发布文章">
+<strong>愫记</strong>页面发布文章</h3>
 
 <p><em>路径</em></p>
 
@@ -169,51 +170,53 @@ related_posts: false
 # tags: tags 配置路径:  _config.yml -&gt; display_tags 
 # giscus_comments: git 留言框
 ---
+</code></pre></div></div>
 
-文章内容 markdown语法
+<p>文章内容 markdown语法</p>
 
+<h3 id="愫读页面发布图书">
+<strong>愫读</strong>页面发布图书</h3>
 
-### 【愫读】页面发布图书
-*路径*
+<p><em>路径</em></p>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>新增: _bibliography/papers.bib
+文件pdf: assets/pdf
 
 </code></pre></div></div>
-<p>新增: _bibliography/papers.bib
-文件pdf: assets/pdf</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p><em>例子</em></p>
 
-*例子*
-
-</code></pre></div></div>
-<p>@book{深空之下, –书名
-  title={深空之下}, –书名
-  author={最终永恒}, –作者
-  book-classification={科幻}, –分类
-  preview={深空之下.jpg}, –图书图片
-  abstract={简介:}, –简介
-  pdf={《深空之下》作者：最终永恒.epub}, –pdf名字  路径存储地址 assets/pdf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@book{深空之下, --书名
+  title={深空之下}, --书名
+  author={最终永恒}, --作者
+  book-classification={科幻}, --分类
+  preview={深空之下.jpg}, --图书图片
+  abstract={简介:}, --简介
+  pdf={《深空之下》作者：最终永恒.epub}, --pdf名字  路径存储地址 assets/pdf
   dimensions={true},
-}</p>
+}
+</code></pre></div></div>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+### 评论系统
+
+&gt; 由 GitHub Discussions 驱动的评论系统。让访客借助 GitHub 在你的网站上留下评论和反应吧！
+[giscus](https://giscus.app/zh-CN)
+
+
+
+###  各种配置路径
+
 
 </code></pre></div></div>
 
-<h3 id="评论系统">评论系统</h3>
+<ol>
+  <li>首页 _pages/about.md</li>
+  <li>首页 图片修改 assets/img/photos-screenshot.png</li>
+  <li>网站icon修改 _config.yml -&gt; icon</li>
+</ol>
 
-<blockquote>
-  <p>由 GitHub Discussions 驱动的评论系统。让访客借助 GitHub 在你的网站上留下评论和反应吧！
-<a href="https://giscus.app/zh-CN" rel="external nofollow noopener" target="_blank">giscus</a></p>
-</blockquote>
-
-<h3 id="各种配置路径">各种配置路径</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-1. 首页 _pages/about.md
-2. 首页 图片修改 assets/img/photos-screenshot.png
-3. 网站icon修改 _config.yml -&gt; icon
-
-</code></pre></div></div>
+<p>```</p>
 
   </article><div id="giscus_thread" style="max-width: 800px; margin: 0 auto;">
   <script>
