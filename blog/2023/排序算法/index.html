@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>动态规划(leetcode) | myyyy .S </title>
+    <title>排序算法 | myyyy .S </title>
     <meta name="author" content="myyyy .S ">
-    <meta name="description" content="动态规划">
+    <meta name="description" content="排序算法">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%8C&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://myyyy.github.io/blog/2023/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92(leetcode)/">
+    <link rel="canonical" href="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
     
     <!-- Dark Mode -->
     
@@ -122,8 +122,8 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">动态规划(leetcode)</h1>
-    <p class="post-meta">April 20, 2023</p>
+    <h1 class="post-title">排序算法</h1>
+    <p class="post-meta">April 27, 2023</p>
     <p class="post-tags">
       <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
         ·  
@@ -135,57 +135,61 @@
   </header>
 
   <article class="post-content">
-    <h2 id="动态规划">动态规划</h2>
-
-<blockquote>
-  <p><a href="https://mp.weixin.qq.com/s/1V3aHVonWBEXlNUvK3S28w" rel="external nofollow noopener" target="_blank">动态规划详解</a></p>
-</blockquote>
-
-<h3 id="爬楼梯">爬楼梯</h3>
-<blockquote>
-  <p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
-每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
-</blockquote>
-
+    <h2 id="快速排序">快速排序</h2>
+<p>https://www.freecodecamp.org/chinese/news/sorting-in-python/</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">climbStairs</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="s">"""
-        :type n: int
-        :rtype: int
-        """</span>
-        
+    <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+        <span class="n">pivot_index</span> <span class="o">=</span> <span class="n">l</span>
+        <span class="n">pivot</span><span class="o">=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+        <span class="nf">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">):</span>
+            <span class="nf">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">r</span> <span class="ow">and</span> <span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">pivot</span><span class="p">):</span>
+                <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span>
+            <span class="nf">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">r</span> <span class="ow">and</span> <span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">pivot</span><span class="p">):</span>
+                <span class="n">l</span><span class="o">=</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+        <span class="n">list_data</span><span class="p">[</span><span class="n">pivot_index</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">=</span><span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">pivot_index</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">r</span>
+    <span class="c1">## 方法一 推荐 结构清晰
+</span>    <span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">l</span><span class="o">&gt;=</span><span class="n">r</span><span class="p">:</span><span class="k">return</span> <span class="n">list_data</span>
+        <span class="n">mid</span> <span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="nf">partition</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">list_data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">partition</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">partition</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">sortArray</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+         <span class="n">self</span><span class="p">.</span><span class="nf">quick_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+         <span class="k">return</span> <span class="n">nums</span>
+    <span class="c1"># 方法二 
+</span>    <span class="k">def</span> <span class="nf">sort2</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">l</span><span class="o">&gt;=</span><span class="n">r</span><span class="p">:</span><span class="k">return</span>
+        <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span><span class="n">r</span>
+        <span class="n">key_index</span> <span class="o">=</span> <span class="n">l</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+        <span class="nf">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">):</span>
+            <span class="nf">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span> <span class="ow">and</span> <span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">key</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span>
+            <span class="nf">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span> <span class="ow">and</span> <span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">key</span><span class="p">):</span>
+                <span class="n">l</span><span class="o">=</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">r</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+        <span class="nf">quickSort</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nf">quickSort</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+
+
+
+<span class="n">QuickSort</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">list_data</span><span class="p">.</span><span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
 </code></pre></div></div>
 
-<h3 id="这是力扣第-322-题-零钱兑换">这是力扣第 322 题「 零钱兑换」：</h3>
-<p><a href="https://leetcode.cn/problems/coin-change/" rel="external nofollow noopener" target="_blank">零钱兑换</a></p>
-
-<p>计算并返回可以凑成总金额所需的 最少的硬币个数 。如果没有任何一种硬币组合能组成总金额，返回 -1 。
-你可以认为每种硬币的数量是无限的。
-示例 1：
-输入：coins = [1, 2, 5], amount = 11
-输出：3 
-解释：11 = 5 + 5 + 1
-来源：力扣（LeetCode）
-链接：https://leetcode.cn/problems/coin-change</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">coinChange</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">coins</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
-        <span class="s">"""
-        :type coins: List[int]
-        :type amount: int
-        :rtype: int
-        """</span>
-        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="n">amount</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">amount</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span><span class="n">默认设置最大用来判断</span> <span class="nf">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">coin</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> <span class="o">//</span><span class="n">设置</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> <span class="n">因为</span> <span class="n">当</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="n">coin</span><span class="o">=</span><span class="mi">1</span> <span class="n">是取的是dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">amount</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">amount</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">i</span><span class="o">-</span><span class="n">coin</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span><span class="k">continue</span>
-                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">coin</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">dp</span>
-        <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">amount</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
+<h2 id="冒泡排序">冒泡排序</h2>
+<p>每轮操作O(n)次，共O（n）轮，时间复杂度O(n^2)。</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bubbleSort</span><span class="p">(</span><span class="n">list_data</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">list_data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">l</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="n">list_data</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">list_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">list_data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">list_data</span>
 </code></pre></div></div>
 
   </article><div id="giscus_thread" style="max-width: 800px; margin: 0 auto;">
