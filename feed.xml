@@ -1,21 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-18T09:44:28+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">面试算法题(leetcode)</title><link href="https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)/" rel="alternate" type="text/html" title="面试算法题(leetcode)" /><published>2023-05-17T00:00:00+00:00</published><updated>2023-05-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)/"><![CDATA[<h2 id="排序">排序</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-18T09:47:13+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">面试算法题(leetcode)</title><link href="https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)/" rel="alternate" type="text/html" title="面试算法题(leetcode)" /><published>2023-05-17T00:00:00+00:00</published><updated>2023-05-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)/"><![CDATA[<h2 id="刷题网站">刷题网站</h2>
+<h3 id="算法">算法</h3>
+<p><a href="https://oi-wiki.org/basic/quick-sort/">算法基础</a></p>
 
-<h2 id="数组">数组</h2>
+<h2 id="排序">排序</h2>
 
-<h2 id="二叉树">二叉树</h2>
-
-<h2 id="哈希表">哈希表</h2>
-
-<h2 id="动态规划">动态规划</h2>
-
-<h2 id="字符串查找">字符串查找</h2>
-
-<h2 id="其他">其他</h2>
-
-<hr />
-
-<d-footnote>This will become a hoverable footnote.</d-footnote>]]></content><author><name>Suyf</name></author><category term="leetcode" /><summary type="html"><![CDATA[刷题]]></summary></entry><entry><title type="html">排序算法</title><link href="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="alternate" type="text/html" title="排序算法" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"><![CDATA[<h2 id="快速排序">快速排序</h2>
+<h3 id="快速排序">快速排序</h3>
 <p>https://www.freecodecamp.org/chinese/news/sorting-in-python/</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
@@ -60,7 +50,7 @@
 
 </code></pre></div></div>
 
-<h2 id="冒泡排序">冒泡排序</h2>
+<h3 id="冒泡排序">冒泡排序</h3>
 <p>每轮操作O(n)次，共O（n）轮，时间复杂度O(n^2)。</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bubbleSort</span><span class="p">(</span><span class="n">list_data</span><span class="p">):</span>
     <span class="n">l</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">list_data</span><span class="p">)</span>
@@ -70,16 +60,15 @@
             <span class="k">if</span> <span class="n">list_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
                 <span class="n">list_data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">list_data</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">list_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">list_data</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[排序算法]]></summary></entry><entry><title type="html">刷题网站聚合</title><link href="https://myyyy.github.io/blog/2023/%E5%88%B7%E9%A2%98%E7%BD%91%E7%AB%99%E8%81%9A%E5%90%88/" rel="alternate" type="text/html" title="刷题网站聚合" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%88%B7%E9%A2%98%E7%BD%91%E7%AB%99%E8%81%9A%E5%90%88</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%88%B7%E9%A2%98%E7%BD%91%E7%AB%99%E8%81%9A%E5%90%88/"><![CDATA[<hr />
-<p>layout: post
-title:   刷题网站聚合
-description: 刷题网站聚合
-tags: [“leetcode”]
-giscus_comments: true
-related_posts: false
-—
-##算法
-<a href="https://oi-wiki.org/basic/quick-sort/">算法基础</a></p>]]></content><author><name></name></author><summary type="html"><![CDATA[layout: post title: 刷题网站聚合 description: 刷题网站聚合 tags: [“leetcode”] giscus_comments: true related_posts: false — ##算法 算法基础]]></summary></entry><entry><title type="html">动态规划(leetcode)</title><link href="https://myyyy.github.io/blog/2023/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92(leetcode)/" rel="alternate" type="text/html" title="动态规划(leetcode)" /><published>2023-04-20T00:00:00+00:00</published><updated>2023-04-20T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92(leetcode)</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92(leetcode)/"><![CDATA[<h2 id="动态规划">动态规划</h2>
+</code></pre></div></div>
+
+<h2 id="数组">数组</h2>
+
+<h2 id="二叉树">二叉树</h2>
+
+<h2 id="哈希表">哈希表</h2>
+
+<h2 id="动态规划">动态规划</h2>
 
 <blockquote>
   <p><a href="https://mp.weixin.qq.com/s/1V3aHVonWBEXlNUvK3S28w">动态规划详解</a></p>
@@ -130,7 +119,15 @@ related_posts: false
         <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">amount</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[动态规划]]></summary></entry><entry><title type="html">大数据时代，如何进行数仓建模?[大数据成长之路]</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模?[大数据成长之路]" /><published>2023-04-15T00:00:00+00:00</published><updated>2023-04-15T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
+</code></pre></div></div>
+
+<h2 id="字符串查找">字符串查找</h2>
+
+<h2 id="其他">其他</h2>
+
+<hr />
+
+<d-footnote>This will become a hoverable footnote.</d-footnote>]]></content><author><name>Suyf</name></author><category term="leetcode" /><summary type="html"><![CDATA[刷题]]></summary></entry><entry><title type="html">大数据时代，如何进行数仓建模?[大数据成长之路]</title><link href="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/" rel="alternate" type="text/html" title="大数据时代，如何进行数仓建模?[大数据成长之路]" /><published>2023-04-15T00:00:00+00:00</published><updated>2023-04-15T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%95%B0%E4%BB%93%E5%BB%BA%E6%A8%A1/"><![CDATA[<h1 id="数仓整体构架">数仓整体构架</h1>
 <p><img src="images/e2b98638e23034c4f0442965707aa81141a0934a1a3a22c4c8efd123d8816ebc.png" alt="picture 5" /> 
 <img src="images/660889a0a7792dd522c5b687f6fe172a3ab8e023cd26508bdeb170ab02cee783.png" alt="picture 6" /></p>
 
@@ -1222,4 +1219,186 @@ distribute by rand()
   <li><a href="https://www.cnblogs.com/itlz/p/15539258.html">最强最全面的数仓建设规范指南 </a></li>
   <li><a href="https://www.cnblogs.com/itlz/p/15539258.html">数仓规范指南</a></li>
   <li><a href="https://mp.weixin.qq.com/s/9YR2FBfo1ufyF2G-M-JNhQ">美团数据平台及数仓建设实践，超十万字总结</a></li>
-</ol>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[引用 最强最全面的数仓建设规范指南 数仓规范指南 美团数据平台及数仓建设实践，超十万字总结]]></summary></entry></feed>
+</ol>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[引用 最强最全面的数仓建设规范指南 数仓规范指南 美团数据平台及数仓建设实践，超十万字总结]]></summary></entry><entry><title type="html">docker入门</title><link href="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/" rel="alternate" type="text/html" title="docker入门" /><published>2017-03-17T00:00:00+00:00</published><updated>2017-03-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8</id><content type="html" xml:base="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/"><![CDATA[<p>#docker的环境配置</p>
+
+<blockquote>
+  <p>sudo apt-get update
+sudo apt-get install docker.io</p>
+</blockquote>
+
+<p>#docker加速器配置</p>
+
+<p>使用配置文件 /etc/docker/daemon.json（没有时新建该文件）
+{
+   “registry-mirrors”: [“<your accelerate="" address="">"]
+}
+注:基于阿里云的镜像加速</your></p>
+
+<h1 id="下拉项目运行环境">下拉项目运行环境</h1>
+
+<p>sudo docker pull registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 
+注:可跟你不同项目的需要配置不同的运行环境</p>
+
+<p>#运行docker image</p>
+
+<p>docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash</p>
+
+<p>#编写脚本文件</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name:up.sh
+#!/bin/bash
+docker stop web
+docker rm -v web
+
+docker run --name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
+</code></pre></div></div>
+
+<p>#命令</p>
+<ol>
+  <li>退出docker容器(非中断模式)
+    <ul>
+      <li>ctrl + P ctrl + q</li>
+    </ul>
+  </li>
+  <li>进入docker image
+    <ul>
+      <li>docker exec -it container_id bash #不会终止</li>
+      <li>docker attach <container> #需要注意的是，如果从这个stdin中exit，会导致容器的停止</container></li>
+    </ul>
+  </li>
+  <li>检查容器运行
+    <ul>
+      <li>docker ps</li>
+      <li>docker ps -a</li>
+    </ul>
+  </li>
+  <li>查看容器信息
+    <ul>
+      <li>docker inspect <container></container></li>
+    </ul>
+  </li>
+  <li>杀死or删除
+    <ul>
+      <li>docker stop <container></container></li>
+      <li>docker kill <container></container></li>
+      <li>docker rm <container></container></li>
+      <li>docker rm $(docker ps -aq) #移除所有</li>
+    </ul>
+  </li>
+</ol>
+
+<p>#参考链接</p>
+<blockquote>
+  <p><a href="http://www.linuxidc.com/Linux/2015-05/117510.htm">docker命令简单介绍</a></p>
+</blockquote>]]></content><author><name></name></author><category term="other" /><summary type="html"><![CDATA[docker的初步应用]]></summary></entry><entry><title type="html">Tornado设置默认403(error)页面</title><link href="https://myyyy.github.io/blog/2017/tornado%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4403(error)%E9%A1%B5%E9%9D%A2/" rel="alternate" type="text/html" title="Tornado设置默认403(error)页面" /><published>2017-03-17T00:00:00+00:00</published><updated>2017-03-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2017/tornado%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4403(error)%E9%A1%B5%E9%9D%A2</id><content type="html" xml:base="https://myyyy.github.io/blog/2017/tornado%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4403(error)%E9%A1%B5%E9%9D%A2/"><![CDATA[<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">tornado</span>
+<span class="kn">import</span> <span class="n">tornado.options</span>
+<span class="kn">import</span> <span class="n">tornado.httpserver</span>
+<span class="kn">from</span> <span class="n">tornado.web</span> <span class="kn">import</span> <span class="n">RequestHandler</span>
+<span class="kn">from</span> <span class="n">tornado.options</span> <span class="kn">import</span> <span class="n">define</span><span class="p">,</span> <span class="n">options</span>
+
+<span class="nf">define</span><span class="p">(</span><span class="sh">"</span><span class="s">port</span><span class="sh">"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1994</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="sh">"</span><span class="s">run on the given port</span><span class="sh">"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">BaseHandler</span><span class="p">(</span><span class="n">tornado</span><span class="p">.</span><span class="n">web</span><span class="p">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">write_error</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">status_code</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span> <span class="ow">or</span> <span class="mi">405</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="nf">dict</span><span class="p">(</span><span class="n">status</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="sh">'</span><span class="s">对不起，你没有权限访问该页面；如需帮助，请联系管理员 </span><span class="sh">'</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">get_error_html</span><span class="p">(</span><span class="n">status_code</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_error_html</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">template_name</span> <span class="o">=</span> <span class="sh">"</span><span class="s">{0}.html</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nf">exists</span><span class="p">(</span><span class="nf">template_path</span><span class="p">(</span><span class="n">template_name</span><span class="p">)):</span>
+            <span class="n">template_name</span> <span class="o">=</span> <span class="sh">"</span><span class="s">error.html</span><span class="sh">"</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nf">exists</span><span class="p">(</span><span class="nf">template_path</span><span class="p">(</span><span class="n">template_name</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">status_code</span><span class="p">))</span>
+
+        <span class="n">kwargs</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
+            <span class="nf">dict</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">status_code</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">responses</span><span class="p">[</span><span class="n">status_code</span><span class="p">]))</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="n">template_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">handlers</span> <span class="o">=</span> <span class="p">[</span> 
+    <span class="p">(</span><span class="sa">r</span><span class="sh">'</span><span class="s">/index</span><span class="sh">'</span><span class="p">,</span> <span class="n">IndexHandler</span><span class="p">),</span>
+    <span class="p">]</span>   
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span> 
+        <span class="sh">'</span><span class="s">template_path</span><span class="sh">'</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">"</span><span class="s">templates</span><span class="sh">"</span><span class="p">),</span>
+        <span class="sh">'</span><span class="s">static_path</span><span class="sh">'</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">'</span><span class="s">static</span><span class="sh">'</span><span class="p">),</span>
+        <span class="p">}</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+        <span class="n">tornado</span><span class="p">.</span><span class="n">options</span><span class="p">.</span><span class="nf">parse_command_line</span><span class="p">()</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">tornado</span><span class="p">.</span><span class="n">web</span><span class="p">.</span><span class="nc">Application</span><span class="p">(</span><span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+        <span class="n">http_server</span> <span class="o">=</span> <span class="n">tornado</span><span class="p">.</span><span class="n">httpserver</span><span class="p">.</span><span class="nc">HTTPServer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+        <span class="n">http_server</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">port</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">tornado</span><span class="p">.</span><span class="n">ioloop</span><span class="p">.</span><span class="n">IOLoop</span><span class="p">.</span><span class="nf">instance</span><span class="p">().</span><span class="nf">start</span><span class="p">()</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="python" /><summary type="html"><![CDATA[``` python import os import tornado import tornado.options import tornado.httpserver from tornado.web import RequestHandler from tornado.options import define, options]]></summary></entry><entry><title type="html">Tornado源码解析之ioloop</title><link href="https://myyyy.github.io/blog/2017/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop/" rel="alternate" type="text/html" title="Tornado源码解析之ioloop" /><published>2017-03-15T00:00:00+00:00</published><updated>2017-03-15T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2017/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop</id><content type="html" xml:base="https://myyyy.github.io/blog/2017/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop/"><![CDATA[<p>##预备知识</p>
+
+<ol>
+  <li>hasattr()&amp;getattr()
+    <ul>
+      <li>hasattr(object, name):判断一个对象是否有’name’属性或者’name’方法
+ *getattr(object, name[,default]):获取对象object的属性或者方法，如果存在打印出来，如果不存在，打印出默认值，默认值可选。(如果获得的是方法,则返回的是方法的内存地址,有需要运行则需要加’()’)</li>
+    </ul>
+  </li>
+  <li>classmethod &amp; staticmethod
+    <ul>
+      <li>待完善</li>
+    </ul>
+  </li>
+  <li>future模块&amp;yeild
+    <ul>
+      <li>future:Python提供了__future__模块，把下一个新版本的特性导入到当前版本</li>
+      <li>yeild: yield的英文单词意思是生产,若某个函数包含yield，这意味着这个函数已经是一个Generator<a href="http://www.pythontab.com/html/2015/pythonhexinbiancheng_0415/946.html">深入理解yield</a></li>
+    </ul>
+  </li>
+  <li>python concurrent 模块
+    <ul>
+      <li>因python GIL全局锁的机制,产生了<a href="http://www.bubuko.com/infodetail-167068.html">concurrent</a>一个实现并发的模块</li>
+    </ul>
+  </li>
+  <li>NotImplementedError()异常处理机制
+    <ul>
+      <li>NotImplemented 是一个非异常对象，NotImplementedError 是一个异常对象.<a href="http://www.tuicool.com/articles/JRb6Zr">参考链接</a>
+ *<a href="https://segmentfault.com/q/1010000005012781">tornado 预定义接口返回异常的好处</a> 
+ *<a href="https://blog.zorro.im/tornado-configurable/">tornado Configureable类</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Synchronous(同步)&amp;Asynchronous(异步)
+ *理解概念<a href="http://www.cnblogs.com/anny0404/p/5691379.html">链接</a></p>
+  </li>
+  <li>
+    <p>fileno()文件描述符
+ *件描述符（File descriptor）是计算机科学中的一个术语，是一个用于表述指向文件的引用的抽象化概念。</p>
+
+    <ul>
+      <li>文件描述符在形式上是一个非负整数。实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表。当程序打开一个现有文件或者创建一个新文件时，内核向进程返回一个文件描述符。在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统</li>
+    </ul>
+  </li>
+  <li>double ckeck问题
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> if not hasattr(IOLoop, "_instance"):
+ with IOLoop._instance_lock:
+     if not hasattr(IOLoop, "_instance"):
+         # New instance after double check
+         IOLoop._instance = IOLoop()
+</code></pre></div>    </div>
+
+    <ul>
+      <li><a href="http://www.jb51.net/article/80363.htm">torndao中单例模式的应用</a></li>
+    </ul>
+  </li>
+  <li>select、poll、epoll
+    <ul>
+      <li><a href="Linux IO模式及 select、poll、epoll详解">Linux IO模式及 select、poll、epoll详解</a></li>
+    </ul>
+  </li>
+</ol>]]></content><author><name></name></author><category term="python" /><summary type="html"><![CDATA[##预备知识]]></summary></entry></feed>
