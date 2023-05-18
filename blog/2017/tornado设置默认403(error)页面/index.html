@@ -24,7 +24,7 @@
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:100,300,400,500,700%7CMaterial+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
 
     <!-- Code Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
@@ -143,20 +143,20 @@
 <span class="kn">from</span> <span class="n">tornado.web</span> <span class="kn">import</span> <span class="n">RequestHandler</span>
 <span class="kn">from</span> <span class="n">tornado.options</span> <span class="kn">import</span> <span class="n">define</span><span class="p">,</span> <span class="n">options</span>
 
-<span class="nf">define</span><span class="p">(</span><span class="s">"port"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1994</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"run on the given port"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="nf">define</span><span class="p">(</span><span class="sh">"</span><span class="s">port</span><span class="sh">"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1994</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="sh">"</span><span class="s">run on the given port</span><span class="sh">"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">BaseHandler</span><span class="p">(</span><span class="n">tornado</span><span class="p">.</span><span class="n">web</span><span class="p">.</span><span class="n">RequestHandler</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">write_error</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">status_code</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span> <span class="ow">or</span> <span class="mi">405</span><span class="p">:</span>
             <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="nf">dict</span><span class="p">(</span><span class="n">status</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="s">'对不起，你没有权限访问该页面；如需帮助，请联系管理员 '</span><span class="p">))</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="sh">'</span><span class="s">对不起，你没有权限访问该页面；如需帮助，请联系管理员 </span><span class="sh">'</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">self</span><span class="p">.</span><span class="nf">get_error_html</span><span class="p">(</span><span class="n">status_code</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_error_html</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">template_name</span> <span class="o">=</span> <span class="s">"{0}.html"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="n">template_name</span> <span class="o">=</span> <span class="sh">"</span><span class="s">{0}.html</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">status_code</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nf">exists</span><span class="p">(</span><span class="nf">template_path</span><span class="p">(</span><span class="n">template_name</span><span class="p">)):</span>
-            <span class="n">template_name</span> <span class="o">=</span> <span class="s">"error.html"</span>
+            <span class="n">template_name</span> <span class="o">=</span> <span class="sh">"</span><span class="s">error.html</span><span class="sh">"</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nf">exists</span><span class="p">(</span><span class="nf">template_path</span><span class="p">(</span><span class="n">template_name</span><span class="p">)):</span>
             <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">status_code</span><span class="p">))</span>
@@ -168,18 +168,18 @@
 
 <span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">'hello'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">)</span>
 
 <span class="n">handlers</span> <span class="o">=</span> <span class="p">[</span> 
-    <span class="p">(</span><span class="sa">r</span><span class="s">'/index'</span><span class="p">,</span> <span class="n">IndexHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="sh">'</span><span class="s">/index</span><span class="sh">'</span><span class="p">,</span> <span class="n">IndexHandler</span><span class="p">),</span>
     <span class="p">]</span>   
 
 <span class="n">settings</span> <span class="o">=</span> <span class="p">{</span> 
-        <span class="s">'template_path'</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s">"templates"</span><span class="p">),</span>
-        <span class="s">'static_path'</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s">'static'</span><span class="p">),</span>
+        <span class="sh">'</span><span class="s">template_path</span><span class="sh">'</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">"</span><span class="s">templates</span><span class="sh">"</span><span class="p">),</span>
+        <span class="sh">'</span><span class="s">static_path</span><span class="sh">'</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">'</span><span class="s">static</span><span class="sh">'</span><span class="p">),</span>
         <span class="p">}</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
         <span class="n">tornado</span><span class="p">.</span><span class="n">options</span><span class="p">.</span><span class="nf">parse_command_line</span><span class="p">()</span>
         <span class="n">app</span> <span class="o">=</span> <span class="n">tornado</span><span class="p">.</span><span class="n">web</span><span class="p">.</span><span class="nc">Application</span><span class="p">(</span><span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
         <span class="n">http_server</span> <span class="o">=</span> <span class="n">tornado</span><span class="p">.</span><span class="n">httpserver</span><span class="p">.</span><span class="nc">HTTPServer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
