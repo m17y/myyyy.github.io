@@ -1,5 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-18T09:26:44+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">排序算法</title><link href="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="alternate" type="text/html" title="排序算法" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"><![CDATA[<h2 id="快速排序">快速排序</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://myyyy.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://myyyy.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-18T09:36:13+00:00</updated><id>https://myyyy.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">面试算法题(leetcode)</title><link href="https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)/" rel="alternate" type="text/html" title="面试算法题(leetcode)" /><published>2023-05-17T00:00:00+00:00</published><updated>2023-05-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98(leetcode)/"><![CDATA[<h2 id="排序">排序</h2>
+
+<h2 id="数组">数组</h2>
+
+<h2 id="二叉树">二叉树</h2>
+
+<h2 id="哈希表">哈希表</h2>
+
+<h2 id="动态规划">动态规划</h2>
+
+<h2 id="字符串查找">字符串查找</h2>
+
+<h2 id="其他">其他</h2>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p>Just wrap the text you would like to show up in a footnote in a <code class="language-plaintext highlighter-rouge">&lt;d-footnote&gt;</code> tag.
+The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote></p>
+
+<hr />]]></content><author><name>Suyf</name></author><category term="leetcode" /><summary type="html"><![CDATA[刷题]]></summary></entry><entry><title type="html">排序算法</title><link href="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="alternate" type="text/html" title="排序算法" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95</id><content type="html" xml:base="https://myyyy.github.io/blog/2023/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"><![CDATA[<h2 id="快速排序">快速排序</h2>
 <p>https://www.freecodecamp.org/chinese/news/sorting-in-python/</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">list_data</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
@@ -1206,75 +1225,4 @@ distribute by rand()
   <li><a href="https://www.cnblogs.com/itlz/p/15539258.html">最强最全面的数仓建设规范指南 </a></li>
   <li><a href="https://www.cnblogs.com/itlz/p/15539258.html">数仓规范指南</a></li>
   <li><a href="https://mp.weixin.qq.com/s/9YR2FBfo1ufyF2G-M-JNhQ">美团数据平台及数仓建设实践，超十万字总结</a></li>
-</ol>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[引用 最强最全面的数仓建设规范指南 数仓规范指南 美团数据平台及数仓建设实践，超十万字总结]]></summary></entry><entry><title type="html">docker入门</title><link href="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/" rel="alternate" type="text/html" title="docker入门" /><published>2017-03-17T00:00:00+00:00</published><updated>2017-03-17T00:00:00+00:00</updated><id>https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8</id><content type="html" xml:base="https://myyyy.github.io/blog/2017/docker%E5%85%A5%E9%97%A8/"><![CDATA[<p>#docker的环境配置</p>
-
-<blockquote>
-  <p>sudo apt-get update
-sudo apt-get install docker.io</p>
-</blockquote>
-
-<p>#docker加速器配置</p>
-
-<p>使用配置文件 /etc/docker/daemon.json（没有时新建该文件）
-{
-   “registry-mirrors”: [“<your accelerate="" address="">"]
-}
-注:基于阿里云的镜像加速</your></p>
-
-<h1 id="下拉项目运行环境">下拉项目运行环境</h1>
-
-<p>sudo docker pull registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 
-注:可跟你不同项目的需要配置不同的运行环境</p>
-
-<p>#运行docker image</p>
-
-<p>docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash</p>
-
-<p>#编写脚本文件</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name:up.sh
-#!/bin/bash
-docker stop web
-docker rm -v web
-
-docker run --name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
-</code></pre></div></div>
-
-<p>#命令</p>
-<ol>
-  <li>退出docker容器(非中断模式)
-    <ul>
-      <li>ctrl + P ctrl + q</li>
-    </ul>
-  </li>
-  <li>进入docker image
-    <ul>
-      <li>docker exec -it container_id bash #不会终止</li>
-      <li>docker attach <container> #需要注意的是，如果从这个stdin中exit，会导致容器的停止</container></li>
-    </ul>
-  </li>
-  <li>检查容器运行
-    <ul>
-      <li>docker ps</li>
-      <li>docker ps -a</li>
-    </ul>
-  </li>
-  <li>查看容器信息
-    <ul>
-      <li>docker inspect <container></container></li>
-    </ul>
-  </li>
-  <li>杀死or删除
-    <ul>
-      <li>docker stop <container></container></li>
-      <li>docker kill <container></container></li>
-      <li>docker rm <container></container></li>
-      <li>docker rm $(docker ps -aq) #移除所有</li>
-    </ul>
-  </li>
-</ol>
-
-<p>#参考链接</p>
-<blockquote>
-  <p><a href="http://www.linuxidc.com/Linux/2015-05/117510.htm">docker命令简单介绍</a></p>
-</blockquote>]]></content><author><name></name></author><category term="other" /><summary type="html"><![CDATA[docker的初步应用]]></summary></entry></feed>
+</ol>]]></content><author><name></name></author><category term="bigdata" /><summary type="html"><![CDATA[引用 最强最全面的数仓建设规范指南 数仓规范指南 美团数据平台及数仓建设实践，超十万字总结]]></summary></entry></feed>
